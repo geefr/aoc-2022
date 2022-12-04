@@ -10,8 +10,9 @@ set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s -Os -fno-stack-protector 
 add_executable(1 1/main.c)
 add_executable(2 2/main.c)
 add_executable(3 3/main.c)
+add_executable(4 4/main.c)
 
 install( TARGETS
-	 1 2 3
+	 1 2 3 4
 	 DESTINATION .
 	 )

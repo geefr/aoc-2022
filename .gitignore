@@ -1,3 +1,4 @@
 build
-input.txt
+input*.txt
 *problem*
+.vscode
