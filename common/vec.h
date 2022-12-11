@@ -17,7 +17,7 @@ typedef struct Vec {
   size_t size;
 } Vec;
 Vec Vec_create() { Vec s = {.items = NULL, .size = 0}; return s; }
-void Vec_destroy(Vec* s) {free(s->items);}
+void Vec_destroy(Vec* s) {if( s->items ) {free(s->items);}}
 void Vec_push_back(Vec* s, Vec_Type v) {
     Vec_Type* oldItems = s->items;
     size_t oldSize = s->size;
@@ -31,7 +31,6 @@ void Vec_push_back(Vec* s, Vec_Type v) {
 }
 void Vec_pop_back(Vec* s) {
     if( s->size == 0 ) return;
-    Vec_Type v = s->items[s->size - 1];
     Vec_Type* oldItems = s->items;
     s->size--;
     if( s->size > 0 ) {
@@ -40,7 +39,9 @@ void Vec_pop_back(Vec* s) {
     } else {
         s->items = NULL;
     }
-    free(oldItems);
+    if( oldItems ) {
+        free(oldItems);
+    }
 }
 void Vec_reverse(Vec* s) {
     if( s->size == 0 ) return;
@@ -50,4 +51,19 @@ void Vec_reverse(Vec* s) {
         s->items[j] = oldItems[i];
     }
     free(oldItems);
+}
+void Vec_pop_front(Vec* s) {
+    // :D
+    Vec_reverse(s);
+    Vec_pop_back(s);
+    Vec_reverse(s);
+}
+void Vec_erase(Vec* s, size_t i) {
+    if( i >= s->size ) return;
+    if( s->size == 0 ) return;
+
+    for( size_t n = i; n < s->size - 1; ++n ) {
+        s->items[n] = s->items[n+1];
+    }
+    Vec_pop_back(s);
 }

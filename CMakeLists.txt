@@ -17,8 +17,9 @@ add_executable(7 7/main.c)
 add_executable(8 8/main.c)
 add_executable(9 9/main.c)
 add_executable(10 10/main.c)
+add_executable(11 11/main.c)
 
 install( TARGETS
-	 1 2 3 4 5 6 7 8 9 10
+	 1 2 3 4 5 6 7 8 9 10 11
 	 DESTINATION .
 	 )
