@@ -86,7 +86,7 @@ void problem1(FILE *f)
         char* op = strtok(buffer, " ");
         char* sparam1 = strtok(NULL, " ");
 
-        Instruction i;
+        Instruction i = {.opcode = ADDX_CYC_1, .param1 = 0};
         if( sparam1 != NULL && strlen(sparam1) != 0 ) i.param1 = atoi(sparam1);
         if( strcmp(op, "noop") == 0 ) {
             i.opcode = NOOP;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "stuff.h"
+
 typedef struct Coordinate {
     int x;
     int y;
@@ -19,4 +21,8 @@ Coordinate Coordinate_minus(Coordinate a, Coordinate b) {
         .y = a.y - b.y
     };
     return c;
+}
+
+bool Coordinate_equal(Coordinate a, Coordinate b) {
+    return a.x == b.x && a.y == b.y;
 }

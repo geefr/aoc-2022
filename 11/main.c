@@ -227,15 +227,17 @@ void problems(FILE *f)
         // Problem 1
         // simulateRound(monkeys, nMonkeys, true, 0);
         simulateRound(monkeys, nMonkeys, false, blackMagic);
-        printf("ROUND %d\n", round + 1);
+        // printf("ROUND %d\n", round + 1);
         // printMonkeys(monkeys, nMonkeys);
-        for( int i = 0; i < nMonkeys; ++i ) {
-            printf("Monkey %d inspected items %d times\n", i, monkeys[i].nTimesInspectedItems);
-        }
-        printf("\n\n");
+        // for( int i = 0; i < nMonkeys; ++i ) {
+        //     printf("Monkey %d inspected items %d times\n", i, monkeys[i].nTimesInspectedItems);
+        // }
+        // printf("\n\n");
     }
 
-
+    for( int i = 0; i < nMonkeys; ++i ) {
+        printf("Monkey %d inspected items %d times\n", i, monkeys[i].nTimesInspectedItems);
+    }
 
     for( size_t i = 0; i < MAXMONKEYS; ++i ) {
         Monkey_destroy(monkeys[i]);

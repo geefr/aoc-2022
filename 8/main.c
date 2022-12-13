@@ -56,17 +56,6 @@ Coordinate Coordinate_add(Coordinate a, Coordinate b) {
     return c;
 }
 
-void parseLine(char* line) {
-    if(line == NULL) {
-        printf("Invalid Input\n");
-        return;
-    }
-    size_t length = strlen(line);
-    if( line[length - 1] == '\n' ) {
-        line[length - 1] = '\0';
-        length = strlen(line);
-    }   
-}
 int HeightMap_CoordinateIsOnEdge(HeightMap m, Coordinate c) {
     return(
         (size_t)c.x == 0 || (size_t)c.x == m.width - 1 ||

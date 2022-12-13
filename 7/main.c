@@ -31,7 +31,7 @@ struct TreeNode
 TreeNode* createNodeDirectory(const char* name) {
     TreeNode* n = malloc(sizeof(TreeNode));
     n->type = NodeDirectory;
-    strncpy(n->name, name, MIN(strlen(name), MAXPATH));
+    strncpy(n->name, name, MIN(strlen(name) + 1, MAXPATH));
     n->fileSize = 0;
     for(size_t i = 0; i < MAXCHILDREN; ++i) {
         n->children[0] = NULL;
