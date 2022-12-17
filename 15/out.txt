@@ -1,0 +1,2 @@
+y=0 process
+Found beacon at (1321724, 0) freq 5286896000000
